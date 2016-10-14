@@ -30,12 +30,33 @@
     </item>
     
     <item>
-      <title>001</title>
+      <title>ブログはじめました</title>
       <link>https://tsukaharan.github.io/post/001/</link>
       <pubDate>Fri, 07 Oct 2016 20:21:44 +0900</pubDate>
       <author>tsukaharama@gmail.com (masaru tsukahara)</author>
       <guid>https://tsukaharan.github.io/post/001/</guid>
-      <description>&lt;p&gt;本文&lt;/p&gt;
+      <description>&lt;p&gt;色々ログ置き場どうしようかなと思っており、以前ははてブに作っていたんですがあんまり愛着持てなかったりしたので、今回は&lt;a href=&#34;https://pages.github.com/&#34;&gt;githubページ&lt;/a&gt;に自分のサイトを置くことにしました。&lt;/p&gt;
+
+&lt;p&gt;今回は&lt;br /&gt;
+- 自分のブログが書ければ良いので静的サイトでじゅうぶん
+- 何かあったときに移行しやすいようマークダウンで書きたい
+- 最小限のデザイン・機能で良いので静的テンプレートエンジンで良い
+- コンパイル軽い
+あたりを目安に構成を考えました。&lt;/p&gt;
+
+&lt;p&gt;結果、以下の構成としました。&lt;br /&gt;
+- サイト置き場 : username.github.io
+  - バージョン管理楽だし
+- テンプレートエンジン : hugo
+  - go言語で書かれていて、とにかく軽くて評判が良かった
+- テーマ : beautiful-jekyll(&lt;a href=&#34;http://deanattali.com/beautiful-jekyll/&#34;&gt;http://deanattali.com/beautiful-jekyll/&lt;/a&gt;)
+  - シンプルなデザインとレイアウトがお気に入り。&lt;/p&gt;
+
+&lt;p&gt;homebrewが最新じゃなくていくつかハマりましたが、結果的には1時間程度でセットアップできました。とっても簡単だと思います。&lt;br /&gt;
+脱wordpressしたい方におすすめの構成だと思います。非エンジニアの私でも出来ました。&lt;br /&gt;
+参考
+&lt;a href=&#34;http://motomizuki.github.io/blog/2015/02/28/hugodeploy/&#34;&gt;Hugoのインストールから自動デプロイまで&lt;/a&gt;
+&lt;a href=&#34;http://qiita.com/eichann/items/4fe61b8b9bbafcfbe847&#34;&gt;Hugo + Github Pagesでブログを公開してみた&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

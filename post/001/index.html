@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>001</title>
+  <title>ブログはじめました</title>
 
   <meta name="author" content="masaru tsukahara" />
   
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://tsukaharan.github.io/css/pygment_highlights.css" />
   
   
-  <meta property="og:title" content="001" />
+  <meta property="og:title" content="ブログはじめました" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="/" />
   <meta property="og:image" content="img/avatar-icon.png" />
@@ -100,7 +100,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>001</h1>
+          <h1>ブログはじめました</h1>
       
       
       
@@ -120,7 +120,28 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-          <p>本文</p>
+          <p>色々ログ置き場どうしようかなと思っており、以前ははてブに作っていたんですがあんまり愛着持てなかったりしたので、今回は<a href="https://pages.github.com/">githubページ</a>に自分のサイトを置くことにしました。</p>
+
+<p>今回は<br />
+- 自分のブログが書ければ良いので静的サイトでじゅうぶん
+- 何かあったときに移行しやすいようマークダウンで書きたい
+- 最小限のデザイン・機能で良いので静的テンプレートエンジンで良い
+- コンパイル軽い
+あたりを目安に構成を考えました。</p>
+
+<p>結果、以下の構成としました。<br />
+- サイト置き場 : username.github.io
+  - バージョン管理楽だし
+- テンプレートエンジン : hugo
+  - go言語で書かれていて、とにかく軽くて評判が良かった
+- テーマ : beautiful-jekyll(<a href="http://deanattali.com/beautiful-jekyll/">http://deanattali.com/beautiful-jekyll/</a>)
+  - シンプルなデザインとレイアウトがお気に入り。</p>
+
+<p>homebrewが最新じゃなくていくつかハマりましたが、結果的には1時間程度でセットアップできました。とっても簡単だと思います。<br />
+脱wordpressしたい方におすすめの構成だと思います。非エンジニアの私でも出来ました。<br />
+参考
+<a href="http://motomizuki.github.io/blog/2015/02/28/hugodeploy/">Hugoのインストールから自動デプロイまで</a>
+<a href="http://qiita.com/eichann/items/4fe61b8b9bbafcfbe847">Hugo + Github Pagesでブログを公開してみた</a></p>
 
       </article>
 
