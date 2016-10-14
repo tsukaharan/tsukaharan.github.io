@@ -37,20 +37,36 @@
       <guid>https://tsukaharan.github.io/post/001/</guid>
       <description>&lt;p&gt;色々ログ置き場どうしようかなと思っており、以前ははてブに作っていたんですがあんまり愛着持てなかったりしたので、今回は&lt;a href=&#34;https://pages.github.com/&#34;&gt;githubページ&lt;/a&gt;に自分のサイトを置くことにしました。&lt;/p&gt;
 
-&lt;p&gt;今回は&lt;br /&gt;
-- 自分のブログが書ければ良いので静的サイトで充分&lt;br /&gt;
-- 何かあったときに移行しやすいようマークダウンで書きたい&lt;br /&gt;
-- 最小限のデザイン・機能で良いので静的テンプレートエンジンで良い&lt;br /&gt;
-- コンパイル軽い&lt;br /&gt;
-あたりを目安に構成を考えました。&lt;/p&gt;
+&lt;p&gt;今回は&lt;/p&gt;
 
-&lt;p&gt;結果、以下の構成としました。&lt;br /&gt;
-- サイト置き場 : username.github.io&lt;br /&gt;
-    - バージョン管理楽だし&lt;br /&gt;
-- テンプレートエンジン : hugo&lt;br /&gt;
-    - go言語で書かれていて、とにかく軽くて評判が良かった&lt;br /&gt;
-- テーマ : &lt;a href=&#34;http://deanattali.com/beautiful-jekyll/&#34;&gt;beautiful-jekyll&lt;/a&gt;&lt;br /&gt;
-    - シンプルなデザインとレイアウトがお気に入り。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自分のブログが書ければ良いので静的サイトで充分&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;何かあったときに移行しやすいようマークダウンで書きたい&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;最小限のデザイン・機能で良いので静的テンプレートエンジンで良い&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;コンパイル軽い&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あたりを目安に構成を考えました。&lt;/p&gt;
+
+&lt;p&gt;結果、以下の構成としました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;サイト置き場 : username.github.io&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;バージョン管理楽だし&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;テンプレートエンジン : hugo&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;go言語で書かれていて、とにかく軽くて評判が良かった&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;テーマ : &lt;a href=&#34;http://deanattali.com/beautiful-jekyll/&#34;&gt;beautiful-jekyll&lt;/a&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;シンプルなデザインとレイアウトがお気に入り。&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;homebrewが最新じゃなくていくつかハマりましたが、結果的には1時間程度でセットアップできました。とっても簡単だと思います。&lt;br /&gt;
 脱wordpressしたい方におすすめの構成だと思います。非エンジニアの私でも出来ました。&lt;/p&gt;
