@@ -8,25 +8,19 @@
     <language>ja</language>
     <managingEditor>tsukaharama@gmail.com (masaru tsukahara)</managingEditor>
     <webMaster>tsukaharama@gmail.com (masaru tsukahara)</webMaster>
-    <lastBuildDate>Fri, 07 Oct 2016 20:21:50 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 14 Oct 2016 13:49:30 +0900</lastBuildDate>
     <atom:link href="https://tsukaharan.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>003</title>
-      <link>https://tsukaharan.github.io/post/003/</link>
-      <pubDate>Fri, 07 Oct 2016 20:21:50 +0900</pubDate>
+      <title>テスト投稿です</title>
+      <link>https://tsukaharan.github.io/post/0002/</link>
+      <pubDate>Fri, 14 Oct 2016 13:49:30 +0900</pubDate>
       <author>tsukaharama@gmail.com (masaru tsukahara)</author>
-      <guid>https://tsukaharan.github.io/post/003/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>002</title>
-      <link>https://tsukaharan.github.io/post/002/</link>
-      <pubDate>Fri, 07 Oct 2016 20:21:46 +0900</pubDate>
-      <author>tsukaharama@gmail.com (masaru tsukahara)</author>
-      <guid>https://tsukaharan.github.io/post/002/</guid>
-      <description></description>
+      <guid>https://tsukaharan.github.io/post/0002/</guid>
+      <description>&lt;p&gt;aaa&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://b.hatena.ne.jp/entry/s/tsukaharan.github.io/&#34; class=&#34;hatena-bookmark-button&#34; data-hatena-bookmark-title=&#34;masalog&#34; data-hatena-bookmark-layout=&#34;simple-balloon&#34; title=&#34;このエントリーをはてなブックマークに追加&#34;&gt;&lt;img src=&#34;https://b.st-hatena.com/images/entry-button/button-only@2x.png&#34; alt=&#34;このエントリーをはてなブックマークに追加&#34; width=&#34;20&#34; height=&#34;20&#34; style=&#34;border: none;&#34; /&gt;&lt;/a&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;https://b.st-hatena.com/js/bookmark_button.js&#34; charset=&#34;utf-8&#34; async=&#34;async&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
