@@ -49,13 +49,14 @@
   - バージョン管理楽だし
 - テンプレートエンジン : hugo
   - go言語で書かれていて、とにかく軽くて評判が良かった
-- テーマ : beautiful-jekyll(&lt;a href=&#34;http://deanattali.com/beautiful-jekyll/&#34;&gt;http://deanattali.com/beautiful-jekyll/&lt;/a&gt;)
+- テーマ : &lt;a href=&#34;http://deanattali.com/beautiful-jekyll/&#34;&gt;beautiful-jekyll&lt;/a&gt;
   - シンプルなデザインとレイアウトがお気に入り。&lt;/p&gt;
 
 &lt;p&gt;homebrewが最新じゃなくていくつかハマりましたが、結果的には1時間程度でセットアップできました。とっても簡単だと思います。&lt;br /&gt;
-脱wordpressしたい方におすすめの構成だと思います。非エンジニアの私でも出来ました。&lt;br /&gt;
-参考
-&lt;a href=&#34;http://motomizuki.github.io/blog/2015/02/28/hugodeploy/&#34;&gt;Hugoのインストールから自動デプロイまで&lt;/a&gt;
+脱wordpressしたい方におすすめの構成だと思います。非エンジニアの私でも出来ました。&lt;/p&gt;
+
+&lt;p&gt;参考&lt;br /&gt;
+&lt;a href=&#34;http://motomizuki.github.io/blog/2015/02/28/hugodeploy/&#34;&gt;Hugoのインストールから自動デプロイまで&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://qiita.com/eichann/items/4fe61b8b9bbafcfbe847&#34;&gt;Hugo + Github Pagesでブログを公開してみた&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
