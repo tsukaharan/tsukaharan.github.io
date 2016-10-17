@@ -8,8 +8,93 @@
     <language>ja</language>
     <managingEditor>tsukaharama@gmail.com (masaru tsukahara)</managingEditor>
     <webMaster>tsukaharama@gmail.com (masaru tsukahara)</webMaster>
-    <lastBuildDate>Fri, 07 Oct 2016 20:21:44 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 17 Oct 2016 14:40:53 +0900</lastBuildDate>
     <atom:link href="https://tsukaharan.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>hugoのテーマカスタマイズあれこれ</title>
+      <link>https://tsukaharan.github.io/post/002/</link>
+      <pubDate>Mon, 17 Oct 2016 14:40:53 +0900</pubDate>
+      <author>tsukaharama@gmail.com (masaru tsukahara)</author>
+      <guid>https://tsukaharan.github.io/post/002/</guid>
+      <description>
+
+&lt;p&gt;hugoってまだまだ日本語ドキュメント多くないですよね。
+インストールしました的なエントリは多いのですが、その中身のカスタマイズ的なところの言及は多くない気がします。大抵英語のリファレンス参考にしてます。&lt;/p&gt;
+
+&lt;p&gt;自分が使っているテンプレートテーマは&lt;a href=&#34;https://github.com/halogenica/beautifulhugo&#34;&gt;githubに落っこちている&lt;/a&gt;ので、その中身見れば30分くらいでどこで何やっているのかあらかた想像ついたんですけど、例えばwordpressからのブログ以降を考えている方とかで、あんまりコードの中身読みませんよって人は少し苦労するかもと思いました。&lt;/p&gt;
+
+&lt;p&gt;ということで、いくつかポイントになりそうな点をメモしておきます。&lt;/p&gt;
+
+&lt;p&gt;ちなみにテーマ選びは&lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;こちら&lt;/a&gt;から見るとDEMOが有るのでとっても分かりやすいと思います。&lt;/p&gt;
+
+&lt;p&gt;自分が使わせて頂いているテーマは&lt;a href=&#34;http://themes.gohugo.io/beautifulhugo/&#34;&gt;beautifulhugo&lt;/a&gt;です&lt;/p&gt;
+
+&lt;p&gt;※別のテーマの構成がどうなっているかはそれこそテーマによるので、あくまで参考レベルにしかならないかもしれません。&lt;/p&gt;
+
+&lt;p&gt;　　&lt;/p&gt;
+
+&lt;h3 id=&#34;テーマファイル&#34;&gt;テーマファイル&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;document_root/themes/theme_name/&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;基本レイアウト&#34;&gt;基本レイアウト&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;document_root/themes/theme_name/layouts/partials/&lt;/code&gt;&lt;br /&gt;
+の中に&lt;br /&gt;
+&lt;code&gt;disqus.html,  head.html,  nav.html,  post.html,  footer.html,  header.html,  page.html&lt;/code&gt;
+があります。&lt;br /&gt;
+これは大体名前見れば役割は分かりますね。&lt;/p&gt;
+
+&lt;p&gt;弄る機会が多いとすれば、&lt;br /&gt;
+&lt;code&gt;nav.html,  post.html,  page.html&lt;/code&gt;&lt;br /&gt;
+あたりでしょうか。
+たとえば私はソーシャルボタンを付けるのに、post.htmlの中を弄くりました。&lt;/p&gt;
+
+&lt;p&gt;はてブボタンであれば、&lt;code&gt;post.html&lt;/code&gt;内に以下のように記載すれば、記事ごとにはてブボタンを取り付けてくれます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ partial &amp;quot;header.html&amp;quot; . }}
+
+&amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;row&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&amp;quot;&amp;gt;
+      &amp;lt;article role=&amp;quot;main&amp;quot; class=&amp;quot;blog-post&amp;quot;&amp;gt;
+          {{ .Content }}
+
+&amp;lt;-- ここからはてブボタン --&amp;gt;
+&amp;lt;a href=&amp;quot;http://b.hatena.ne.jp/entry/&amp;quot; class=&amp;quot;hatena-bookmark-button&amp;quot; data-hatena-bookmark-layout=&amp;quot;simple-balloon&amp;quot; title=&amp;quot;このエントリーをはてなブックマークに追
+加&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;https://b.st-hatena.com/images/entry-button/button-only@2x.png&amp;quot; alt=&amp;quot;このエントリーをはてなブックマークに追加&amp;quot; width=&amp;quot;20&amp;quot; height=&amp;quot;20&amp;quot; style=&amp;quot;border: none;&amp;quot; /&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;https://b.st-hatena.com/js/bookmark_button.js&amp;quot; charset=&amp;quot;utf-8&amp;quot; async=&amp;quot;async&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;-- はてブボタンここまで --&amp;gt;
+
+      &amp;lt;/article&amp;gt;
+      &amp;lt;ul class=&amp;quot;pager blog-pager&amp;quot;&amp;gt;
+        {{ if .PrevInSection }}
+        &amp;lt;li class=&amp;quot;previous&amp;quot;&amp;gt;
+          &amp;lt;a href=&amp;quot;{{ .PrevInSection.Permalink }}&amp;quot; data-toggle=&amp;quot;tooltip&amp;quot; data-placement=&amp;quot;top&amp;quot; title=&amp;quot;{{ .PrevInSection.Title }}&amp;quot;&amp;gt;&amp;amp;larr; Previous Post&amp;lt;/a&amp;gt;
+        &amp;lt;/li&amp;gt;
+        {{ end }}
+        {{ if .NextInSection }}
+        &amp;lt;li class=&amp;quot;next&amp;quot;&amp;gt;
+          &amp;lt;a href=&amp;quot;{{ .NextInSection.Permalink }}&amp;quot; data-toggle=&amp;quot;tooltip&amp;quot; data-placement=&amp;quot;top&amp;quot; title=&amp;quot;{{ .NextInSection.Title }}&amp;quot;&amp;gt;Next Post &amp;amp;rarr;&amp;lt;/a&amp;gt;
+        &amp;lt;/li&amp;gt;
+        {{ end }}
+      &amp;lt;/ul&amp;gt;
+
+      {{ if .Site.DisqusShortname }}
+      &amp;lt;div class=&amp;quot;disqus-comments&amp;quot;&amp;gt;
+        {{ template &amp;quot;_internal/disqus.html&amp;quot; . }}
+      &amp;lt;/div&amp;gt;
+      {{ end }}
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次はFBボタンとか付けていきたいなと思います。&lt;/p&gt;
+
+&lt;p&gt;本日もお読み頂きましてありがとうございました。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>ブログはじめました</title>

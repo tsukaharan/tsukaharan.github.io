@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>002</title>
+  <title>hugoのテーマカスタマイズあれこれ</title>
 
   <meta name="author" content="masaru tsukahara" />
   
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://tsukaharan.github.io/css/pygment_highlights.css" />
   
   
-  <meta property="og:title" content="002" />
+  <meta property="og:title" content="hugoのテーマカスタマイズあれこれ" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="/" />
   <meta property="og:image" content="img/avatar-icon.png" />
@@ -100,11 +100,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>002</h1>
+          <h1>hugoのテーマカスタマイズあれこれ</h1>
       
       
       
-      <span class="post-meta">Posted on October 7, 2016</span>
+      <span class="post-meta">Posted on October 17, 2016</span>
       
         </div>
       </div>
@@ -121,8 +121,84 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
           
-      </article>
 
+<p>hugoってまだまだ日本語ドキュメント多くないですよね。
+インストールしました的なエントリは多いのですが、その中身のカスタマイズ的なところの言及は多くない気がします。大抵英語のリファレンス参考にしてます。</p>
+
+<p>自分が使っているテンプレートテーマは<a href="https://github.com/halogenica/beautifulhugo">githubに落っこちている</a>ので、その中身見れば30分くらいでどこで何やっているのかあらかた想像ついたんですけど、例えばwordpressからのブログ以降を考えている方とかで、あんまりコードの中身読みませんよって人は少し苦労するかもと思いました。</p>
+
+<p>ということで、いくつかポイントになりそうな点をメモしておきます。</p>
+
+<p>ちなみにテーマ選びは<a href="http://themes.gohugo.io/">こちら</a>から見るとDEMOが有るのでとっても分かりやすいと思います。</p>
+
+<p>自分が使わせて頂いているテーマは<a href="http://themes.gohugo.io/beautifulhugo/">beautifulhugo</a>です</p>
+
+<p>※別のテーマの構成がどうなっているかはそれこそテーマによるので、あくまで参考レベルにしかならないかもしれません。</p>
+
+<p>　　</p>
+
+<h3 id="テーマファイル">テーマファイル</h3>
+
+<p><code>document_root/themes/theme_name/</code></p>
+
+<h3 id="基本レイアウト">基本レイアウト</h3>
+
+<p><code>document_root/themes/theme_name/layouts/partials/</code><br />
+の中に<br />
+<code>disqus.html,  head.html,  nav.html,  post.html,  footer.html,  header.html,  page.html</code>
+があります。<br />
+これは大体名前見れば役割は分かりますね。</p>
+
+<p>弄る機会が多いとすれば、<br />
+<code>nav.html,  post.html,  page.html</code><br />
+あたりでしょうか。
+たとえば私はソーシャルボタンを付けるのに、post.htmlの中を弄くりました。</p>
+
+<p>はてブボタンであれば、<code>post.html</code>内に以下のように記載すれば、記事ごとにはてブボタンを取り付けてくれます。</p>
+
+<pre><code class="language-html">{{ partial &quot;header.html&quot; . }}
+
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&quot;&gt;
+      &lt;article role=&quot;main&quot; class=&quot;blog-post&quot;&gt;
+          {{ .Content }}
+
+&lt;-- ここからはてブボタン --&gt;
+&lt;a href=&quot;http://b.hatena.ne.jp/entry/&quot; class=&quot;hatena-bookmark-button&quot; data-hatena-bookmark-layout=&quot;simple-balloon&quot; title=&quot;このエントリーをはてなブックマークに追
+加&quot;&gt;&lt;img src=&quot;https://b.st-hatena.com/images/entry-button/button-only@2x.png&quot; alt=&quot;このエントリーをはてなブックマークに追加&quot; width=&quot;20&quot; height=&quot;20&quot; style=&quot;border: none;&quot; /&gt;&lt;/a&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;https://b.st-hatena.com/js/bookmark_button.js&quot; charset=&quot;utf-8&quot; async=&quot;async&quot;&gt;&lt;/script&gt;
+&lt;-- はてブボタンここまで --&gt;
+
+      &lt;/article&gt;
+      &lt;ul class=&quot;pager blog-pager&quot;&gt;
+        {{ if .PrevInSection }}
+        &lt;li class=&quot;previous&quot;&gt;
+          &lt;a href=&quot;{{ .PrevInSection.Permalink }}&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;top&quot; title=&quot;{{ .PrevInSection.Title }}&quot;&gt;&amp;larr; Previous Post&lt;/a&gt;
+        &lt;/li&gt;
+        {{ end }}
+        {{ if .NextInSection }}
+        &lt;li class=&quot;next&quot;&gt;
+          &lt;a href=&quot;{{ .NextInSection.Permalink }}&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;top&quot; title=&quot;{{ .NextInSection.Title }}&quot;&gt;Next Post &amp;rarr;&lt;/a&gt;
+        &lt;/li&gt;
+        {{ end }}
+      &lt;/ul&gt;
+
+      {{ if .Site.DisqusShortname }}
+      &lt;div class=&quot;disqus-comments&quot;&gt;
+        {{ template &quot;_internal/disqus.html&quot; . }}
+      &lt;/div&gt;
+      {{ end }}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>次はFBボタンとか付けていきたいなと思います。</p>
+
+<p>本日もお読み頂きましてありがとうございました。</p>
+
+<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+      </article>
       <ul class="pager blog-pager">
         
         <li class="previous">
@@ -130,14 +206,9 @@
         </li>
         
         
-        <li class="next">
-          <a href="https://tsukaharan.github.io/post/003/" data-toggle="tooltip" data-placement="top" title="003">Next Post &rarr;</a>
-        </li>
-        
       </ul>
 
       
-
     </div>
   </div>
 </div>
