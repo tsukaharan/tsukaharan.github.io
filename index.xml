@@ -152,9 +152,16 @@
       <guid>https://tsukaharan.github.io/page/about/</guid>
       <description>
 
-&lt;p&gt;figure src=&amp;ldquo;/img/author.png&amp;rdquo; &amp;gt;}}&lt;/p&gt;
+&lt;h3 id=&#34;作者について&#34;&gt;作者について&lt;/h3&gt;
 
-&lt;h2 id=&#34;作者について&#34;&gt;作者について&lt;/h2&gt;
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://tsukaharan.github.io/img/author.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
 
 &lt;p&gt;BizDev中心に企業のお手伝いしながら、いろいろ事業開発がんばってます。&lt;br /&gt;
 医療と教育がだいすきなので、0 → 1、1 → 10 フェーズの事業開発のリソースをお探しの方、お声がけください。&lt;/p&gt;
