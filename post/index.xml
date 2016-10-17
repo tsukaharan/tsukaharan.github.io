@@ -61,10 +61,10 @@
       &amp;lt;article role=&amp;quot;main&amp;quot; class=&amp;quot;blog-post&amp;quot;&amp;gt;
           {{ .Content }}
 
-&amp;lt;-- ここからはてブボタン --&amp;gt;
+&amp;lt;!-- ここからはてブボタン --&amp;gt;
 &amp;lt;a href=&amp;quot;http://b.hatena.ne.jp/entry/&amp;quot; class=&amp;quot;hatena-bookmark-button&amp;quot; data-hatena-bookmark-layout=&amp;quot;simple-balloon&amp;quot; title=&amp;quot;このエントリーをはてなブックマークに追
 加&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;https://b.st-hatena.com/images/entry-button/button-only@2x.png&amp;quot; alt=&amp;quot;このエントリーをはてなブックマークに追加&amp;quot; width=&amp;quot;20&amp;quot; height=&amp;quot;20&amp;quot; style=&amp;quot;border: none;&amp;quot; /&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;https://b.st-hatena.com/js/bookmark_button.js&amp;quot; charset=&amp;quot;utf-8&amp;quot; async=&amp;quot;async&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;-- はてブボタンここまで --&amp;gt;
+&amp;lt;!-- はてブボタンここまで --&amp;gt;
 
       &amp;lt;/article&amp;gt;
       &amp;lt;ul class=&amp;quot;pager blog-pager&amp;quot;&amp;gt;
@@ -141,16 +141,6 @@
 &lt;p&gt;参考&lt;br /&gt;
 &lt;a href=&#34;http://motomizuki.github.io/blog/2015/02/28/hugodeploy/&#34;&gt;Hugoのインストールから自動デプロイまで&lt;/a&gt;&lt;br /&gt;
 &lt;a href=&#34;http://qiita.com/eichann/items/4fe61b8b9bbafcfbe847&#34;&gt;Hugo + Github Pagesでブログを公開してみた&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tsukaharan.github.io/post/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>tsukaharama@gmail.com (masaru tsukahara)</author>
-      <guid>https://tsukaharan.github.io/post/about/</guid>
-      <description>&lt;p&gt;test&lt;/p&gt;
 </description>
     </item>
     
