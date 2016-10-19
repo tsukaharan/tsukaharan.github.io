@@ -43,7 +43,7 @@
 
 &lt;p&gt;&lt;code&gt;Cloud Foundry アプリケーションの作成&lt;/code&gt; を選び、アプリ名、ホスト名、ドメインを入力します。ドメインは、右上のメニューに有る、オーガニゼーションとスペースを作ったサーバになっていることを確認しましょう。&lt;/p&gt;
 
-&lt;p&gt;{{ figure src=&amp;ldquo;/img/004_01.jpeg&amp;rdquo; }}&lt;/p&gt;
+&lt;p&gt;{{ &lt;figure src=&#34;https://tsukaharan.github.io/img/004_01.jpeg&#34;&gt; }}&lt;/p&gt;
 
 &lt;p&gt;2016年10月時点では、シドニー、英国、米国南部を選べるようです。&lt;/p&gt;
 
