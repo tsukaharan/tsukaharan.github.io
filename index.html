@@ -121,7 +121,8 @@
               </p>
             
               <div class="post-entry">
-                会社のSlackにHubotを導入しようと思い、はじめはスタンダードでHeroku使おうと思ったんですが、この[エントリ]()を見て、IBMのBluemixで導入を試みることにしました。 Bluemixのアカウント登録 当方アカウントを持っていなかったので登録からです。 こちらのページの説明がとても丁寧で分かりやすいですが、 まぁ何も見ないでやっても普通に登録できます。 Heroku同様に無料枠も用意されています。 a気をつけるべきは、サーバによってオーガニゼーションとスペース(インスタンス以上サーバ未満って感じ？)をそれぞれ登録する必要があることくらいです。 ホスト作成 アカウントを登録できたら、ホストの登録を行います。 全部GUIで出来るので簡単です。 Cloud Foundry アプリケーションの作成 を選び、アプリ名、ホスト名、ドメインを入力します。ドメインは、右上のメニューに有る、オーガニゼーションとスペースを作ったサーバになっていることを確認しましょう。 {{ figure src=&ldquo;/img/004_01.jpeg&rdquo; }} 2016年10月時点では、シドニー、英国、米国南部を選べるようです。 ローカルでHubotのインストール サーバの準備ができたら次はローカルでHubotのインストールを行います。 nodeが入っていない方はまずこちらを $ brew install node $ npm install -g yo grunt-cli bower 次にhubotジェネレーターを入れます $ npm install -g generator-hubot hubotをインストールする適当なディレクトリに移動して、 $mkdir hubot $cd hubot $yo hubot を実行します。名前などいくつか質問されますので答えていきます。 Bot adapterという質問をされたら、Slackと答えてください。 Botが動いているか確認します。 $ bin/hubot エンターを押すとコマンド入力できるようになるので、とりあえずpingを叩いて動いているか確認しましょう。 Hubot&gt; hubot ping Hubot&gt; PONG ぴんぽん！ サンプルスクリプトの作成 Hubotのスクリプトは、 ルートディレクトリ/scripit/ 配下に入れます。 デフォルトだと、 example.coffee が入っているので、その中にサンプルスクリプトを書いてみます。 module.exports = (robot) -&gt; robot.hear /(ランチ|お昼ごはん|お腹すいた|)/i, (msg) -&gt; msg.send &quot;行きましょう！社長のオゴリで！！&quot; もう一度hubotを起動してみましょう。 Hubot&gt; ランチ Hubot&gt; 行きましょう！社長のオゴリで！！ 行きましょう！ Bluemixにpush さて、ローカルで動くことが確認できたので、次はBluemixにpushしていきます。 まずは、 manifest.yml を作成し編集します。 $ vi manifesst.yml applications: - buildpack: https://github.com/jthomas/nodejs-v4-buildpack.git command: ./bin/hubot --adapter slack path: .
+                <p>会社のSlackにHubotを導入しようと思い、はじめはスタンダードでHeroku使おうと思ったんですが、この[エントリ]()を見て、IBMの<a href="https://www.ibm.com/cloud-computing/jp/ja/bluemix/">Bluemix</a>で導入を試みることにしました。</p>
+
           	  <a href="https://tsukaharan.github.io/post/004/" class="post-read-more">[Read&nbsp;More]</a>
               </div>
             
