@@ -8,8 +8,117 @@
     <language>ja</language>
     <managingEditor>tsukaharama@gmail.com (masaru tsukahara)</managingEditor>
     <webMaster>tsukaharama@gmail.com (masaru tsukahara)</webMaster>
-    <lastBuildDate>Mon, 17 Oct 2016 14:40:53 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 18 Oct 2016 20:55:05 +0900</lastBuildDate>
     <atom:link href="https://tsukaharan.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HerokuではなくIBMのBluemixでHubotを動かしてみる</title>
+      <link>https://tsukaharan.github.io/post/004/</link>
+      <pubDate>Tue, 18 Oct 2016 20:55:05 +0900</pubDate>
+      <author>tsukaharama@gmail.com (masaru tsukahara)</author>
+      <guid>https://tsukaharan.github.io/post/004/</guid>
+      <description>
+
+&lt;p&gt;会社のSlackにHubotを導入しようと思い、はじめはスタンダードでHeroku使おうと思ったんですが、この[エントリ]()を見て、IBMの&lt;a href=&#34;https://www.ibm.com/cloud-computing/jp/ja/bluemix/&#34;&gt;Bluemix&lt;/a&gt;で導入を試みることにしました。&lt;/p&gt;
+
+&lt;h3 id=&#34;bluemixのアカウント登録&#34;&gt;Bluemixのアカウント登録&lt;/h3&gt;
+
+&lt;p&gt;当方アカウントを持っていなかったので登録からです。
+こちらのページの説明がとても丁寧で分かりやすいですが、&lt;br /&gt;
+まぁ何も見ないでやっても普通に登録できます。&lt;/p&gt;
+
+&lt;p&gt;Heroku同様に無料枠も用意されています。&lt;/p&gt;
+
+&lt;p&gt;気をつけるべきは、サーバによってオーガニゼーションと○をそれぞれ登録する必要があることくらいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;ホスト作成&#34;&gt;ホスト作成&lt;/h3&gt;
+
+&lt;p&gt;アカウントを登録できたら、ホストの登録を行います。&lt;/p&gt;
+
+&lt;h3 id=&#34;ローカルでhubotのインストール&#34;&gt;ローカルでHubotのインストール&lt;/h3&gt;
+
+&lt;h3 id=&#34;hubotのテストとサンプルスクリプトの作成&#34;&gt;Hubotのテストとサンプルスクリプトの作成&lt;/h3&gt;
+
+&lt;h3 id=&#34;bluemixにpush&#34;&gt;Bluemixにpush&lt;/h3&gt;
+
+&lt;h3 id=&#34;slackとの連携&#34;&gt;Slackとの連携&lt;/h3&gt;
+
+&lt;h3 id=&#34;slackでのテスト&#34;&gt;Slackでのテスト&lt;/h3&gt;
+
+&lt;p&gt;本日もお読み頂きましてありがとうございました。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>hugoで画像リンクを記事に挿入する</title>
+      <link>https://tsukaharan.github.io/post/003/</link>
+      <pubDate>Mon, 17 Oct 2016 16:41:26 +0900</pubDate>
+      <author>tsukaharama@gmail.com (masaru tsukahara)</author>
+      <guid>https://tsukaharan.github.io/post/003/</guid>
+      <description>&lt;p&gt;せっかくマークダウンで記載しているのにhtml文章を入れないといけないのもナンセンスだなと思い、MDで書く方法を探してみました。&lt;/p&gt;
+
+&lt;p&gt;しかし何なんですかね。こういうのを気持ち悪いと思う感覚。例えば全角数字とか半角カナとか、混在していたら気持ち悪いって感じるエンジニアさん、多いと思うんですよ。&lt;/p&gt;
+
+&lt;p&gt;さて、hugoにおける画像挿入ですが、実は公式に用意されている記法があります。&lt;br /&gt;
+それが&lt;a href=&#34;https://gohugo.io/extras/shortcodes/&#34;&gt;shortcodes&lt;/a&gt;です。&lt;/p&gt;
+
+&lt;p&gt;記事内のfigureの箇所にも書いてありますが、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby:qiita.rb&#34;&gt;{ {&amp;lt; figure src=&amp;quot;/img/hoge.jpg&amp;quot; &amp;gt;}}  
+puts &#39;The best way to log and share programmers knowledge.&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;My code&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と定義すると、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;figure&amp;gt;
+    &amp;lt;img src=&amp;quot;/img/hoge.png&amp;quot;&amp;gt;
+&amp;lt;/figure&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とコンパイルしてくれます。
+簡単ですね！&lt;/p&gt;
+
+&lt;p&gt;ちなみにオプションも用意されており、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;src
+link
+title
+caption
+class
+attr (attribution)
+attrlink
+alt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;が用意されています。その場合、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://tsukaharan.github.io/img/hoge.jpg&#34; alt=&#34;image&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と記述すると&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;figure&amp;gt;
+    &amp;lt;img src=&amp;quot;/img/hoge.png&amp;quot; alt=&amp;quot;author&amp;quot;&amp;gt;
+&amp;lt;/figure&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とコンパイルしてくれます！簡単ですね！！&lt;/p&gt;
+
+&lt;p&gt;hugo便利で軽くて簡単で本当に捗ります。&lt;/p&gt;
+
+&lt;p&gt;本日もお読み頂きましてありがとうございました。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>hugoのテーマカスタマイズあれこれ</title>

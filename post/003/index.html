@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>003</title>
+  <title>hugoで画像リンクを記事に挿入する</title>
 
   <meta name="author" content="masaru tsukahara" />
   
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://tsukaharan.github.io/css/pygment_highlights.css" />
   
   
-  <meta property="og:title" content="003" />
+  <meta property="og:title" content="hugoで画像リンクを記事に挿入する" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="/" />
   <meta property="og:image" content="img/avatar-icon.png" />
@@ -100,11 +100,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>003</h1>
+          <h1>hugoで画像リンクを記事に挿入する</h1>
       
       
       
-      <span class="post-meta">Posted on October 7, 2016</span>
+      <span class="post-meta">Posted on October 17, 2016</span>
       
         </div>
       </div>
@@ -120,20 +120,85 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-          
-      </article>
+          <p>せっかくマークダウンで記載しているのにhtml文章を入れないといけないのもナンセンスだなと思い、MDで書く方法を探してみました。</p>
 
+<p>しかし何なんですかね。こういうのを気持ち悪いと思う感覚。例えば全角数字とか半角カナとか、混在していたら気持ち悪いって感じるエンジニアさん、多いと思うんですよ。</p>
+
+<p>さて、hugoにおける画像挿入ですが、実は公式に用意されている記法があります。<br />
+それが<a href="https://gohugo.io/extras/shortcodes/">shortcodes</a>です。</p>
+
+<p>記事内のfigureの箇所にも書いてありますが、</p>
+
+<pre><code class="language-ruby:qiita.rb">{ {&lt; figure src=&quot;/img/hoge.jpg&quot; &gt;}}  
+puts 'The best way to log and share programmers knowledge.'
+</code></pre>
+
+<pre><code class="language-html">&lt;a href=&quot;#&quot;&gt;My code&lt;/a&gt;
+</code></pre>
+
+<p>と定義すると、</p>
+
+<pre><code class="language-html">&lt;figure&gt;
+    &lt;img src=&quot;/img/hoge.png&quot;&gt;
+&lt;/figure&gt;
+</code></pre>
+
+<p>とコンパイルしてくれます。
+簡単ですね！</p>
+
+<p>ちなみにオプションも用意されており、</p>
+
+<pre><code>src
+link
+title
+caption
+class
+attr (attribution)
+attrlink
+alt
+</code></pre>
+
+<p>が用意されています。その場合、</p>
+
+<pre><code class="language-go">
+<figure >
+    
+        <img src="https://tsukaharan.github.io/img/hoge.jpg" alt="image" />
+    
+    
+</figure>
+
+</code></pre>
+
+<p>と記述すると</p>
+
+<pre><code class="language-html">&lt;figure&gt;
+    &lt;img src=&quot;/img/hoge.png&quot; alt=&quot;author&quot;&gt;
+&lt;/figure&gt;
+</code></pre>
+
+<p>とコンパイルしてくれます！簡単ですね！！</p>
+
+<p>hugo便利で軽くて簡単で本当に捗ります。</p>
+
+<p>本日もお読み頂きましてありがとうございました。</p>
+
+<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+      </article>
       <ul class="pager blog-pager">
         
         <li class="previous">
-          <a href="https://tsukaharan.github.io/post/002/" data-toggle="tooltip" data-placement="top" title="002">&larr; Previous Post</a>
+          <a href="https://tsukaharan.github.io/post/002/" data-toggle="tooltip" data-placement="top" title="hugoのテーマカスタマイズあれこれ">&larr; Previous Post</a>
         </li>
         
+        
+        <li class="next">
+          <a href="https://tsukaharan.github.io/post/004/" data-toggle="tooltip" data-placement="top" title="HerokuではなくIBMのBluemixでHubotを動かしてみる">Next Post &rarr;</a>
+        </li>
         
       </ul>
 
       
-
     </div>
   </div>
 </div>
@@ -217,6 +282,16 @@
 <script src="https://tsukaharan.github.io/js/bootstrap.min.js"></script>
 <script src="https://tsukaharan.github.io/js/main.js"></script>
 
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-85957539-1', 'auto');
+ga('send', 'pageview');
+</script>
 
 
 

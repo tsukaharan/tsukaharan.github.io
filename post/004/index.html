@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title></title>
+  <title>HerokuではなくIBMのBluemixでHubotを動かしてみる</title>
 
   <meta name="author" content="masaru tsukahara" />
   
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://tsukaharan.github.io/css/pygment_highlights.css" />
   
   
-  <meta property="og:title" content="" />
+  <meta property="og:title" content="HerokuではなくIBMのBluemixでHubotを動かしてみる" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="/" />
   <meta property="og:image" content="img/avatar-icon.png" />
@@ -90,29 +90,76 @@
         
 
 
-<div class="intro-header"></div>
 
 
-<div class="container" role="main">
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>HerokuではなくIBMのBluemixでHubotを動かしてみる</h1>
+      
+      
+      
+      <span class="post-meta">Posted on October 18, 2016</span>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      
+      <article role="main" class="blog-post">
+          
 
-<h3 id="作者について">作者について</h3>
+<p>会社のSlackにHubotを導入しようと思い、はじめはスタンダードでHeroku使おうと思ったんですが、この[エントリ]()を見て、IBMの<a href="https://www.ibm.com/cloud-computing/jp/ja/bluemix/">Bluemix</a>で導入を試みることにしました。</p>
 
+<h3 id="bluemixのアカウント登録">Bluemixのアカウント登録</h3>
 
-<figure >
-    
-        <img src="https://tsukaharan.github.io/img/author.png" alt="author" />
-    
-    
-</figure>
+<p>当方アカウントを持っていなかったので登録からです。
+こちらのページの説明がとても丁寧で分かりやすいですが、<br />
+まぁ何も見ないでやっても普通に登録できます。</p>
 
+<p>Heroku同様に無料枠も用意されています。</p>
 
-<p>BizDev中心に企業のお手伝いしながら、いろいろ事業開発がんばってます。<br />
-医療と教育がだいすきなので、0 → 1、1 → 10 フェーズの事業開発のリソースをお探しの方、お声がけください。</p>
+<p>気をつけるべきは、サーバによってオーガニゼーションと○をそれぞれ登録する必要があることくらいです。</p>
 
-<p>趣味は釣りとドライブと<del><a href="https://tabelog.com/chiba/A1206/A120603/12000453/dtlrvwlst/55313880/">クソまずいラーメン</a></del>。</p>
+<h3 id="ホスト作成">ホスト作成</h3>
+
+<p>アカウントを登録できたら、ホストの登録を行います。</p>
+
+<h3 id="ローカルでhubotのインストール">ローカルでHubotのインストール</h3>
+
+<h3 id="hubotのテストとサンプルスクリプトの作成">Hubotのテストとサンプルスクリプトの作成</h3>
+
+<h3 id="bluemixにpush">Bluemixにpush</h3>
+
+<h3 id="slackとの連携">Slackとの連携</h3>
+
+<h3 id="slackでのテスト">Slackでのテスト</h3>
+
+<p>本日もお読み頂きましてありがとうございました。</p>
+
+<a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+      </article>
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="https://tsukaharan.github.io/post/003/" data-toggle="tooltip" data-placement="top" title="hugoで画像リンクを記事に挿入する">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
 
       
     </div>
