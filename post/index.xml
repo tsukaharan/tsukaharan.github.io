@@ -24,26 +24,119 @@
 &lt;h3 id=&#34;bluemixのアカウント登録&#34;&gt;Bluemixのアカウント登録&lt;/h3&gt;
 
 &lt;p&gt;当方アカウントを持っていなかったので登録からです。
-こちらのページの説明がとても丁寧で分かりやすいですが、&lt;br /&gt;
+&lt;a href=&#34;http://qiita.com/KenichiSekine/items/6ad49b25167b3f4cdb63&#34;&gt;こちら&lt;/a&gt;のページの説明がとても丁寧で分かりやすいですが、&lt;br /&gt;
 まぁ何も見ないでやっても普通に登録できます。&lt;/p&gt;
 
-&lt;p&gt;Heroku同様に無料枠も用意されています。&lt;/p&gt;
+&lt;p&gt;Heroku同様に&lt;a href=&#34;http://qiita.com/zuhito/items/86e7ad47d14937d3e9b6#_reference-a3c8d97a4441b514a91d&#34;&gt;無料枠&lt;/a&gt;も用意されています。&lt;/p&gt;
 
-&lt;p&gt;気をつけるべきは、サーバによってオーガニゼーションと○をそれぞれ登録する必要があることくらいです。&lt;/p&gt;
+&lt;p&gt;a気をつけるべきは、サーバによってオーガニゼーションとスペース(インスタンス以上サーバ未満って感じ？)をそれぞれ登録する必要があることくらいです。&lt;/p&gt;
 
 &lt;h3 id=&#34;ホスト作成&#34;&gt;ホスト作成&lt;/h3&gt;
 
-&lt;p&gt;アカウントを登録できたら、ホストの登録を行います。&lt;/p&gt;
+&lt;p&gt;アカウントを登録できたら、ホストの登録を行います。
+全部GUIで出来るので簡単です。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Cloud Foundry アプリケーションの作成&lt;/code&gt; を選び、アプリ名、ホスト名、ドメインを入力します。ドメインは、右上のメニューに有る、オーガニゼーションとスペースを作ったサーバになっていることを確認しましょう。&lt;/p&gt;
+
+&lt;p&gt;{{ figure src=&amp;ldquo;/img/004_01.jpeg&amp;rdquo; }}&lt;/p&gt;
+
+&lt;p&gt;2016年10月時点では、シドニー、英国、米国南部を選べるようです。&lt;/p&gt;
 
 &lt;h3 id=&#34;ローカルでhubotのインストール&#34;&gt;ローカルでHubotのインストール&lt;/h3&gt;
 
-&lt;h3 id=&#34;hubotのテストとサンプルスクリプトの作成&#34;&gt;Hubotのテストとサンプルスクリプトの作成&lt;/h3&gt;
+&lt;p&gt;サーバの準備ができたら次はローカルでHubotのインストールを行います。&lt;/p&gt;
+
+&lt;p&gt;nodeが入っていない方はまずこちらを&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install node
+$ npm install -g yo grunt-cli bower
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次にhubotジェネレーターを入れます&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install -g generator-hubot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;hubotをインストールする適当なディレクトリに移動して、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$mkdir hubot
+$cd hubot
+$yo hubot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を実行します。名前などいくつか質問されますので答えていきます。&lt;br /&gt;
+&lt;code&gt;Bot adapter&lt;/code&gt;という質問をされたら、&lt;code&gt;Slack&lt;/code&gt;と答えてください。&lt;/p&gt;
+
+&lt;p&gt;Botが動いているか確認します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ bin/hubot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;エンターを押すとコマンド入力できるようになるので、とりあえずpingを叩いて動いているか確認しましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hubot&amp;gt; hubot ping
+Hubot&amp;gt; PONG
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ぴんぽん！&lt;/p&gt;
+
+&lt;h3 id=&#34;サンプルスクリプトの作成&#34;&gt;サンプルスクリプトの作成&lt;/h3&gt;
+
+&lt;p&gt;Hubotのスクリプトは、 &lt;code&gt;ルートディレクトリ/scripit/&lt;/code&gt; 配下に入れます。&lt;br /&gt;
+デフォルトだと、 &lt;code&gt;example.coffee&lt;/code&gt; が入っているので、その中にサンプルスクリプトを書いてみます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;module.exports = (robot) -&amp;gt;
+  robot.hear /(ランチ|お昼ごはん|お腹すいた|)/i, (msg) -&amp;gt;
+    msg.send &amp;quot;行きましょう！社長のオゴリで！！&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;もう一度hubotを起動してみましょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hubot&amp;gt; ランチ
+Hubot&amp;gt; 行きましょう！社長のオゴリで！！
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;行きましょう！&lt;/p&gt;
 
 &lt;h3 id=&#34;bluemixにpush&#34;&gt;Bluemixにpush&lt;/h3&gt;
 
-&lt;h3 id=&#34;slackとの連携&#34;&gt;Slackとの連携&lt;/h3&gt;
+&lt;p&gt;さて、ローカルで動くことが確認できたので、次はBluemixにpushしていきます。
+まずは、 &lt;code&gt;manifest.yml&lt;/code&gt; を作成し編集します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vi manifesst.yml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-manifest.yml&#34;&gt;applications:
+- buildpack: https://github.com/jthomas/nodejs-v4-buildpack.git
+  command: ./bin/hubot --adapter slack
+  path: .
+  instances: 1
+  memory: 256M
+  host: hubot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ホスト名を指定しないとエラーになることがあるので、Bluemixの設定時に作ったホスト名を指定してあげましょう。&lt;/p&gt;
+
+&lt;p&gt;コンソールからbluemixにログインします。herokuと同じような使い勝手になっています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; cf login -a https://api.au-syd.bluemix.net -u username -p password
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;※ -aオプションはログインするサーバの指定ですが、シドニーの場合のURLを入れています。米国南部・英国は異なりますので、ご注意ください。&lt;/p&gt;
+
+&lt;p&gt;hubotをサーバにpushします。また、その際にSlackのトークンも割り当てておきましょう。Slackのトークンの取得はSlackにログインした状態で&lt;a href=&#34;http://my.slack.com/services/new/hubot&#34;&gt;こちら&lt;/a&gt;にアクセスしてみてください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cf push hubot
+cf set-env hubot HUBOT_SLACK_TOKEN slackのトークン
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実行されました的な表示が出ればOKです。これでSlackでhubotが動くようになりました。&lt;/p&gt;
 
 &lt;h3 id=&#34;slackでのテスト&#34;&gt;Slackでのテスト&lt;/h3&gt;
+
+&lt;p&gt;hubotを招待した任意のチャンネルで、&lt;code&gt;ランチ&lt;/code&gt;とコメントして&lt;code&gt;行きましょう！社長のオゴリで！！&lt;/code&gt;と返ってくれば成功です。&lt;/p&gt;
+
+&lt;p&gt;がんがんスクリプトを作ってhubotを成長させていきましょう。&lt;/p&gt;
 
 &lt;p&gt;本日もお読み頂きましてありがとうございました。&lt;/p&gt;
 </description>

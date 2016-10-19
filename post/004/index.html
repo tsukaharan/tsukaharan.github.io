@@ -127,26 +127,119 @@
 <h3 id="bluemixのアカウント登録">Bluemixのアカウント登録</h3>
 
 <p>当方アカウントを持っていなかったので登録からです。
-こちらのページの説明がとても丁寧で分かりやすいですが、<br />
+<a href="http://qiita.com/KenichiSekine/items/6ad49b25167b3f4cdb63">こちら</a>のページの説明がとても丁寧で分かりやすいですが、<br />
 まぁ何も見ないでやっても普通に登録できます。</p>
 
-<p>Heroku同様に無料枠も用意されています。</p>
+<p>Heroku同様に<a href="http://qiita.com/zuhito/items/86e7ad47d14937d3e9b6#_reference-a3c8d97a4441b514a91d">無料枠</a>も用意されています。</p>
 
-<p>気をつけるべきは、サーバによってオーガニゼーションと○をそれぞれ登録する必要があることくらいです。</p>
+<p>a気をつけるべきは、サーバによってオーガニゼーションとスペース(インスタンス以上サーバ未満って感じ？)をそれぞれ登録する必要があることくらいです。</p>
 
 <h3 id="ホスト作成">ホスト作成</h3>
 
-<p>アカウントを登録できたら、ホストの登録を行います。</p>
+<p>アカウントを登録できたら、ホストの登録を行います。
+全部GUIで出来るので簡単です。</p>
+
+<p><code>Cloud Foundry アプリケーションの作成</code> を選び、アプリ名、ホスト名、ドメインを入力します。ドメインは、右上のメニューに有る、オーガニゼーションとスペースを作ったサーバになっていることを確認しましょう。</p>
+
+<p>{{ figure src=&ldquo;/img/004_01.jpeg&rdquo; }}</p>
+
+<p>2016年10月時点では、シドニー、英国、米国南部を選べるようです。</p>
 
 <h3 id="ローカルでhubotのインストール">ローカルでHubotのインストール</h3>
 
-<h3 id="hubotのテストとサンプルスクリプトの作成">Hubotのテストとサンプルスクリプトの作成</h3>
+<p>サーバの準備ができたら次はローカルでHubotのインストールを行います。</p>
+
+<p>nodeが入っていない方はまずこちらを</p>
+
+<pre><code>$ brew install node
+$ npm install -g yo grunt-cli bower
+</code></pre>
+
+<p>次にhubotジェネレーターを入れます</p>
+
+<pre><code>$ npm install -g generator-hubot
+</code></pre>
+
+<p>hubotをインストールする適当なディレクトリに移動して、</p>
+
+<pre><code>$mkdir hubot
+$cd hubot
+$yo hubot
+</code></pre>
+
+<p>を実行します。名前などいくつか質問されますので答えていきます。<br />
+<code>Bot adapter</code>という質問をされたら、<code>Slack</code>と答えてください。</p>
+
+<p>Botが動いているか確認します。</p>
+
+<pre><code>$ bin/hubot
+</code></pre>
+
+<p>エンターを押すとコマンド入力できるようになるので、とりあえずpingを叩いて動いているか確認しましょう。</p>
+
+<pre><code>Hubot&gt; hubot ping
+Hubot&gt; PONG
+</code></pre>
+
+<p>ぴんぽん！</p>
+
+<h3 id="サンプルスクリプトの作成">サンプルスクリプトの作成</h3>
+
+<p>Hubotのスクリプトは、 <code>ルートディレクトリ/scripit/</code> 配下に入れます。<br />
+デフォルトだと、 <code>example.coffee</code> が入っているので、その中にサンプルスクリプトを書いてみます。</p>
+
+<pre><code class="language-javascript">module.exports = (robot) -&gt;
+  robot.hear /(ランチ|お昼ごはん|お腹すいた|)/i, (msg) -&gt;
+    msg.send &quot;行きましょう！社長のオゴリで！！&quot;
+</code></pre>
+
+<p>もう一度hubotを起動してみましょう。</p>
+
+<pre><code>Hubot&gt; ランチ
+Hubot&gt; 行きましょう！社長のオゴリで！！
+</code></pre>
+
+<p>行きましょう！</p>
 
 <h3 id="bluemixにpush">Bluemixにpush</h3>
 
-<h3 id="slackとの連携">Slackとの連携</h3>
+<p>さて、ローカルで動くことが確認できたので、次はBluemixにpushしていきます。
+まずは、 <code>manifest.yml</code> を作成し編集します。</p>
+
+<pre><code>$ vi manifesst.yml
+</code></pre>
+
+<pre><code class="language-manifest.yml">applications:
+- buildpack: https://github.com/jthomas/nodejs-v4-buildpack.git
+  command: ./bin/hubot --adapter slack
+  path: .
+  instances: 1
+  memory: 256M
+  host: hubot
+</code></pre>
+
+<p>ホスト名を指定しないとエラーになることがあるので、Bluemixの設定時に作ったホスト名を指定してあげましょう。</p>
+
+<p>コンソールからbluemixにログインします。herokuと同じような使い勝手になっています。</p>
+
+<pre><code> cf login -a https://api.au-syd.bluemix.net -u username -p password
+</code></pre>
+
+<p>※ -aオプションはログインするサーバの指定ですが、シドニーの場合のURLを入れています。米国南部・英国は異なりますので、ご注意ください。</p>
+
+<p>hubotをサーバにpushします。また、その際にSlackのトークンも割り当てておきましょう。Slackのトークンの取得はSlackにログインした状態で<a href="http://my.slack.com/services/new/hubot">こちら</a>にアクセスしてみてください。</p>
+
+<pre><code>cf push hubot
+cf set-env hubot HUBOT_SLACK_TOKEN slackのトークン
+</code></pre>
+
+<p>実行されました的な表示が出ればOKです。これでSlackでhubotが動くようになりました。</p>
 
 <h3 id="slackでのテスト">Slackでのテスト</h3>
+
+<p>hubotを招待した任意のチャンネルで、<code>ランチ</code>とコメントして<code>行きましょう！社長のオゴリで！！</code>と返ってくれば成功です。</p>
+
+<p>がんがんスクリプトを作ってhubotを成長させていきましょう。</p>
 
 <p>本日もお読み頂きましてありがとうございました。</p>
 
