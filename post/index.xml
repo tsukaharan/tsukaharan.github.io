@@ -169,11 +169,14 @@ cf set-env hubot HUBOT_SLACK_TOKEN slackのトークン
 
 &lt;p&gt;記事内のfigureの箇所にも書いてありますが、&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-ruby:qiita.rb&#34;&gt;{ {&amp;lt; figure src=&amp;quot;/img/hoge.jpg&amp;quot; &amp;gt;}}  
-puts &#39;The best way to log and share programmers knowledge.&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;My code&amp;lt;/a&amp;gt;
+&lt;pre&gt;&lt;code class=&#34;language-ruby:qiita.rb&#34;&gt;`
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://tsukaharan.github.io/img/hoge.jpg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+`
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;と定義すると、&lt;/p&gt;
